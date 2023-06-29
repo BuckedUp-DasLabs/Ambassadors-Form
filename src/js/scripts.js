@@ -270,7 +270,6 @@ form.addEventListener("submit", async (e) => {
     return;
   }
   const body = getValues();
-  console.log(body);
   const response = await fetch(
     "https://www.buckedup.com/ambassador/register-ext/json",
     {
@@ -282,7 +281,6 @@ form.addEventListener("submit", async (e) => {
     }
   );
   const responseLog = await response.json();
-  console.log(responseLog);
   if (!response.ok) {
     apiErrorField.classList.toggle("active");
     apiErrorField.innerHTML = responseLog.error_message;
