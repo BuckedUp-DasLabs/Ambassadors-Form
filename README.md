@@ -2,9 +2,9 @@
 
 ### Place this code into html/css head:
 ```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Custom-Select@master/style.css" />
-<script src="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Custom-Select@master/custom-select.js" defer></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Ambassadors-Form@main/src/scss/style.css" />
-<script src="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Ambassadors-Form@main/src/js/scripts.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Custom-Select@latest/style.css" />
+<script src="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Custom-Select@latest/custom-select.js" defer></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Ambassadors-Form@latest/src/scss/style.css" />
+<script src="https://cdn.jsdelivr.net/gh/BuckedUp-DasLabs/Ambassadors-Form@latest/src/js/scripts.js" defer></script>
 
 ```
