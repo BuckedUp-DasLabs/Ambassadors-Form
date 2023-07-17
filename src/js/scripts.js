@@ -286,4 +286,5 @@ form.addEventListener("submit", async (e) => {
     apiErrorField.innerHTML = responseLog.error_message;
     return;
   }
+  window.location.href = "https://get.buckedup.com/amb-thankyou"
 });
