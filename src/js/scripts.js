@@ -267,8 +267,11 @@ const apiErrorField = document.querySelector(".api-error");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  const button = document.querySelector('button[type = "submit"]');
+  button.toggleAttribute("disabled");
   if (!validateForm()) {
     alert("Required field missing or invalid.");
+    button.toggleAttribute("disabled");
     return;
   }
   const body = getValues();
@@ -287,6 +290,7 @@ form.addEventListener("submit", async (e) => {
   if (!response.ok) {
     apiErrorField.classList.toggle("active");
     apiErrorField.innerHTML = responseLog.error_message;
+    button.toggleAttribute("disabled");
     return;
   }
   window.location.href = "https://get.buckedup.com/amb-thankyou"
