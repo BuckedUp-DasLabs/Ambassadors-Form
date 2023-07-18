@@ -64,8 +64,9 @@ const countrySelect = document.querySelector("#country");
 const stateSelect = document.querySelector("#state");
 
 const updateStates = async () => {
+  stateSelect.toggleAttribute("disabled");
   const body = {};
-  body.country = countrySelect.value;
+  body.country = countrySelect.value.split("-")[0];
   const response = await fetch(
     `https://countriesnow.space/api/v0.1/countries/states`,
     {
@@ -89,11 +90,12 @@ const updateStates = async () => {
   stateSelect.appendChild(placeholder);
   responseJson.data.states.forEach((state) => {
     let option = document.createElement("option");
-    option.value = state.name;
+    option.value = state.state_code;
     option.innerHTML = state.name;
     stateSelect.appendChild(option);
   });
   updateSelect(stateSelect);
+  stateSelect.toggleAttribute("disabled");
 };
 
 const getCountries = async () => {
@@ -114,7 +116,7 @@ const getCountries = async () => {
     })
     .forEach((country) => {
       const option = document.createElement("option");
-      option.value = country.name;
+      option.value = `${country.name}-${country.iso2}`;
       option.innerHTML = country.name;
       countrySelect.appendChild(option);
     });
@@ -245,7 +247,7 @@ const getValues = () => {
   formFields.address_2 = document.querySelector("#address2").value;
   formFields.city = document.querySelector("#city").value;
   formFields.postal_code = document.querySelector("#zip").value;
-  formFields.country = document.querySelector("#country").value;
+  formFields.country = document.querySelector("#country").value.split("-")[1];
   formFields.state = document.querySelector("#state").value;
   formFields.payout_data = document.querySelector("#payout-data").value;
   formFields.social_media_accounts = [];
