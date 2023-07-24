@@ -286,8 +286,8 @@ form.addEventListener("submit", async (e) => {
       body: JSON.stringify(body),
     }
   );
-  const responseLog = await response.json();
   if (!response.ok) {
+    const responseLog = await response.json();
     apiErrorField.classList.toggle("active");
     apiErrorField.innerHTML = responseLog.error_message;
     button.toggleAttribute("disabled");
