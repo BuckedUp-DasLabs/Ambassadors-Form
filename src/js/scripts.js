@@ -268,10 +268,13 @@ const apiErrorField = document.querySelector(".api-error");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const button = document.querySelector('button[type = "submit"]');
+  const spinner = document.querySelector(".lds-dual-ring");
   button.toggleAttribute("disabled");
+  spinner.classList.toggle("active");
   if (!validateForm()) {
     alert("Required field missing or invalid.");
     button.toggleAttribute("disabled");
+    spinner.classList.toggle("active");
     return;
   }
   const body = getValues();

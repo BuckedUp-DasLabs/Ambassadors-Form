@@ -7,7 +7,7 @@
   width: 100%;
   margin-bottom: 20rem;
   text-align: left;
-  .custom-select.active .custom-select__options{
+  .custom-select.active .custom-select__options {
     z-index: 3;
   }
   .padding-sides {
@@ -130,8 +130,8 @@
   }
   .socials {
     overflow-y: auto;
-    padding-top: 13px;
-    max-height: 374px;
+    padding-top: 0.8125rem;
+    max-height: 23.375rem;
     margin-top: -0.8125rem;
     padding: 0.8125rem 2.3125rem 0 2.3125rem;
     @media (max-width: 767px) {
@@ -264,8 +264,8 @@
       user-select: none;
       span {
         display: block;
-        width: 14px;
-        height: 14px;
+        width: 0.875rem;
+        height: 0.875rem;
         border: 0.0625rem solid #828687;
         border-radius: 0.125rem;
         display: flex;
@@ -285,6 +285,10 @@
     }
   }
   .submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
     width: 100%;
     background-color: #f00;
     color: #fbfbfb;
@@ -313,8 +317,8 @@
     text-align: center;
     font-size: 1rem;
     color: #f00;
-    &.active{
-      margin-top:0.3rem;
+    &.active {
+      margin-top: 0.3rem;
     }
   }
   .questions {
@@ -325,5 +329,33 @@
       text-decoration: none;
       color: #f00;
     }
+  }
+}
+
+.lds-dual-ring {
+  display: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  &.active{
+    display: inline-block;
+  }
+  &:after {
+    content: " ";
+    display: block;
+    width: calc(100% - 0.5rem);
+    height: calc(100% - 0.5rem);
+    border-radius: 50%;
+    border: 0.25rem solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
