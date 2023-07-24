@@ -286,6 +286,8 @@ form.addEventListener("submit", async (e) => {
       body: JSON.stringify(body),
     }
   );
+  console.log(body)
+  console.log(response)
   const responseLog = await response.json();
   if (!response.ok) {
     apiErrorField.classList.toggle("active");
