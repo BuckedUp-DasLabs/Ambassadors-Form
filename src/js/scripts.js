@@ -294,6 +294,7 @@ form.addEventListener("submit", async (e) => {
     apiErrorField.classList.toggle("active");
     apiErrorField.innerHTML = responseLog.error_message;
     button.toggleAttribute("disabled");
+    spinner.classList.toggle("active");
     return;
   }
   window.location.href = "https://get.buckedup.com/amb-thankyou"
