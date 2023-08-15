@@ -279,6 +279,7 @@ form.addEventListener("submit", async (e) => {
   }
   const body = getValues();
   body.source = sourceField
+  console.log(body)
   const response = await fetch(
     "https://www.buckedup.com/ambassador/register-ext/json",
     {
