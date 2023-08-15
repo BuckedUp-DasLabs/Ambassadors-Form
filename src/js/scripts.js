@@ -278,7 +278,7 @@ form.addEventListener("submit", async (e) => {
     return;
   }
   const body = getValues();
-  body.source = "AMB-GET-PG"
+  body.source = sourceField
   const response = await fetch(
     "https://www.buckedup.com/ambassador/register-ext/json",
     {
