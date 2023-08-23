@@ -291,7 +291,10 @@ form.addEventListener("submit", async (e) => {
   );
   if (!response.ok) {
     const responseLog = await response.json();
+    console.log(responseLog)
     apiErrorField.classList.toggle("active");
+    if(responseLog.error_message === "The customer account is already associated with a valid ambassador.")
+      responseLog.error_message = "The customer account is already associated with a ambassador application"
     apiErrorField.innerHTML = responseLog.error_message;
     button.toggleAttribute("disabled");
     spinner.classList.toggle("active");
