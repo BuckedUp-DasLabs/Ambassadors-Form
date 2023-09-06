@@ -100,7 +100,7 @@ const updateStates = async () => {
 
 const getCountries = async () => {
   const response = await fetch(
-    "https://countriesnow.space/api/v0.1/countries/info?returns=name"
+    "https://countriesnow.space/api/v0.1/countries/info?returns=name,iso2"
   );
   const responseJson = await response.json();
   if (!response.ok) {
