@@ -118,7 +118,7 @@
             border-radius: 0.5rem 0.5rem 0 0;
           }
           &__options {
-            padding: 0 0.875rem;
+            padding: 0.625rem .875rem 0 .875rem;
             border-bottom-width: 0.0625rem;
           }
           &__option {
@@ -310,6 +310,9 @@
       &:focus {
         background-color: transparent;
         color: #f00;
+        .lds-dual-ring:after{
+          border-color: #f00 transparent #f00 transparent;
+        }
       }
     }
   }
@@ -340,6 +343,7 @@
     display: inline-block;
   }
   &:after {
+    transition: 0.3s;
     content: " ";
     display: block;
     width: calc(100% - 0.5rem);
