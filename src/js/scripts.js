@@ -96,7 +96,31 @@ const updateStates = async () => {
   });
   updateSelect(stateSelect);
   stateSelect.toggleAttribute("disabled");
+  return responseJson;
 };
+
+const getUrlParams = async () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const firstName = urlParams.get('first-name')
+  const lastName = urlParams.get('last-name')
+  const mail = urlParams.get('email')
+  const phone = urlParams.get('phone')
+  const state = urlParams.get('state')
+  if (firstName) {
+    document.querySelector("#first-name").value = firstName
+    document.querySelector("#last-name").value = lastName
+    document.querySelector("#email").value = mail
+    document.querySelector("#email-confirm").value = mail
+    document.querySelector("#phone").value = phone
+  }
+  await updateStates();
+  if(state){
+    document.querySelector("#state").value = state
+    const stateCustomSelect = document.querySelector('[original-id="state"]')
+    const stateSelectName = stateCustomSelect.querySelector(".custom-select__name")
+    stateSelectName.innerHTML = stateSelect.querySelector(`[value="${state}"]`).innerHTML
+  }
+}
 
 const getCountries = async () => {
   const response = await fetch(
@@ -121,6 +145,7 @@ const getCountries = async () => {
       countrySelect.appendChild(option);
     });
   updateSelect(countrySelect);
+  return responseJson;
 };
 
 getCountries();
@@ -129,7 +154,7 @@ countrySelect.addEventListener("change", async () => {
   updateStates();
 });
 
-updateStates();
+getUrlParams();
 
 const addInsta = document.querySelector("#add-insta");
 const addTikTok = document.querySelector("#add-tiktok");
@@ -292,7 +317,7 @@ form.addEventListener("submit", async (e) => {
   if (!response.ok) {
     const responseLog = await response.json();
     apiErrorField.classList.toggle("active");
-    if(responseLog.error_code === "AlreadyAffiliate")
+    if (responseLog.error_code === "AlreadyAffiliate")
       responseLog.error_message = "The customer account is already associated with a ambassador application"
     apiErrorField.innerHTML = responseLog.error_message;
     button.toggleAttribute("disabled");
