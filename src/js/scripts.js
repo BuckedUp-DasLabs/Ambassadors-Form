@@ -305,7 +305,12 @@ form.addEventListener("submit", async (e) => {
     return;
   }
   const body = getValues();
-  body.source = sourceField
+  const urlParams = new URLSearchParams(window.location.search);
+  try{
+    body.source = urlParams.get("source") || sourceField
+  }catch{
+    body.source = urlParams.get("source") || "no-source-provided"
+  }
   const response = await fetch(
     "https://www.buckedup.com/ambassador/register-ext/json",
     {
