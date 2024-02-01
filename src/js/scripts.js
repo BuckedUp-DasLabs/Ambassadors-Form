@@ -62,9 +62,15 @@ allInputs.forEach((input) => {
 
 const countrySelect = document.querySelector("#country");
 const stateSelect = document.querySelector("#state");
+const customStateSelect = document.querySelector("[original-id='state']")
+const customStateSelectName = customStateSelect.querySelector(".custom-select__name")
+const spinner = document.createElement("span");
+spinner.classList.add("lds-dual-ring");
 
 const updateStates = async () => {
   stateSelect.toggleAttribute("disabled");
+  customStateSelectName.appendChild(spinner);
+  customStateSelect.classList.toggle("loading");
   const body = {};
   body.country = countrySelect.value.split("-")[0];
   const response = await fetch(
@@ -96,6 +102,7 @@ const updateStates = async () => {
   });
   updateSelect(stateSelect);
   stateSelect.toggleAttribute("disabled");
+  customStateSelect.classList.toggle("loading")
   return responseJson;
 };
 

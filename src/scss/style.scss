@@ -118,7 +118,7 @@
             border-radius: 0.5rem 0.5rem 0 0;
           }
           &__options {
-            padding: 0.625rem .875rem 0 .875rem;
+            padding: 0.625rem 0.875rem 0 0.875rem;
             border-bottom-width: 0.0625rem;
           }
           &__option {
@@ -288,7 +288,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:1rem;
+    gap: 1rem;
     width: 100%;
     background-color: #f00;
     color: #fbfbfb;
@@ -310,7 +310,7 @@
       &:focus {
         background-color: transparent;
         color: #f00;
-        .lds-dual-ring:after{
+        .lds-dual-ring:after {
           border-color: #f00 transparent #f00 transparent;
         }
       }
@@ -339,7 +339,7 @@
   display: none;
   width: 1.25rem;
   height: 1.25rem;
-  &.active{
+  &.active {
     display: inline-block;
   }
   &:after {
@@ -352,6 +352,20 @@
     border: 0.25rem solid #fff;
     border-color: #fff transparent #fff transparent;
     animation: lds-dual-ring 1.2s linear infinite;
+  }
+}
+.loading {
+  .lds-dual-ring {
+    width: 1.15rem;
+    height: 1.15rem;
+    display: block;
+    margin-left: auto !important;
+    &:after {
+      border-color: #f00 transparent #f00 transparent;
+    }
+  }
+  svg {
+    display: none !important;
   }
 }
 
