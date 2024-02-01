@@ -131,34 +131,6 @@ const getUrlParams = async () => {
   }
 }
 
-const getCountries = async () => {
-  const response = await fetch(
-    "https://countriesnow.space/api/v0.1/countries/info?returns=name,iso2"
-  );
-  const responseJson = await response.json();
-  if (!response.ok) {
-    alert("There was a problem fetching the selected country.");
-    console.log(responseJson);
-    return;
-  }
-  responseJson.data
-    .sort((a, b) => {
-      if (a.name < b.name) return -1;
-      if (a.name > b.name) return 1;
-      return 0;
-    })
-    .forEach((country) => {
-      const option = document.createElement("option");
-      option.value = `${country.name}-${country.iso2}`;
-      option.innerHTML = country.name;
-      countrySelect.appendChild(option);
-    });
-  updateSelect(countrySelect);
-  return responseJson;
-};
-
-getCountries();
-
 countrySelect.addEventListener("change", async () => {
   updateStates();
 });
