@@ -285,6 +285,7 @@ form.addEventListener("submit", async (e) => {
   }
   const body = getValues();
   const urlParams = new URLSearchParams(window.location.search);
+  body.parent_id = urlParams.get("pid");
   try{
     body.source = urlParams.get("source") || sourceField
   }catch{
